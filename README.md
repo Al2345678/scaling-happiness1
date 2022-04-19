@@ -139,13 +139,11 @@ app.layout = html.Div(children=[
 # Callback function definition
 # TASK4: Add 5 ouput components
 # Enter your code below. Make sure you have correct formatting.
-@app.callback(
-        [
-            Output(component_id='plot1', component_property='children'),
-            Output(component_id='plot2', component_property='children'),
-            Output(component_id='plot3', component_property='children'),
-            Output(component_id='plot4', component_property='children'),
-            Output(component_id='plot5', component_property='children')
+@app.callback([Output(component_id='carrier-plot', component_property='figure'), 
+Output(component_id='weather-plot', component_property='figure'),
+Output(component_id='nas-plot', component_property='figure'), 
+Output(component_id='security-plot', component_property='figure'),
+Output(component_id='late-plot', component_property='figure') 
         ],
                [Input(component_id='input-type', component_property='value'),
                 Input(component_id='input-year', component_property='value')],
