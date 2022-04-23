@@ -73,8 +73,6 @@ def compute_data_choice_2(df):
 
 # Application layout
 app.layout = html.Div(children=[ 
-                                # TASK1: Add title to the dashboard
-                                # Enter your code below. Make sure you have correct formatting.
                                 html.H1('US Domestic Airline Flights Performance', 
                                 style={'textAlign':'center','color':'#503D36','font-size':24}),
                                 # REVIEW2: Dropdown creation
@@ -88,8 +86,6 @@ app.layout = html.Div(children=[
                                             html.H2('Report Type:', style={'margin-right': '2em'}),
                                             ]
                                         ),
-                                        # TASK2: Add a dropdown
-                                        # Enter your code below. Make sure you have correct formatting.
                                         dcc.Dropdown(id='input-type', 
                                                       options=
                                                       [
@@ -128,17 +124,14 @@ app.layout = html.Div(children=[
                                         html.Div([ ], id='plot3')
                                 ], style={'display': 'flex'}),
                                 
-                                # TASK3: Add a division with two empty divisions inside. See above disvision for example.
-                                # Enter your code below. Make sure you have correct formatting.
+                                
                                 html.Div([
                                         html.Div([ ], id='plot4'),
                                         html.Div([ ], id='plot5')
                                 ], style={'display': 'flex'})
 ])
 
-# Callback function definition
-# TASK4: Add 5 ouput components
-# Enter your code below. Make sure you have correct formatting.
+
 @app.callback([Output(component_id='carrier-plot', component_property='figure'), 
 Output(component_id='weather-plot', component_property='figure'),
 Output(component_id='nas-plot', component_property='figure'), 
@@ -165,8 +158,6 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
             # Number of flights under different cancellation categories
             bar_fig = px.bar(bar_data, x='Month', y='Flights', color='CancellationCode', title='Monthly Flight Cancellation')
             
-            # TASK5: Average flight time by reporting airline
-            # Enter your code below. Make sure you have correct formatting.
             line_fig = px.line(line_data, x='Month', y='AirTime', color='Reporting_Airline ', title='Average monthly flight time (minutes) by airline')
             
             # Percentage of diverted airport landings per reporting airline
@@ -184,8 +175,6 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                     title_text = 'Number of flights from origin state', 
                     geo_scope='usa') # Plot only the USA instead of globe
             
-            # TASK6: Number of flights flying to each state from each reporting airline
-            # Enter your code below. Make sure you have correct formatting.
             tree_fig = px.treemap(tree_data, path=['DestState', 'Reporting_Airline'], 
                       values='Flights',
                       color='Flights ',
